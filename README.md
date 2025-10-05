@@ -41,7 +41,19 @@ Optional for best appearance:
 
 ⚠️ **Warning**: If you haven't installed and set up plymouth. Please [Click here](https://wiki.archlinux.org/title/Plymouth) and follow the arch wiki guide to setup before proceeding further.
 
+### Automatic Installation (AUR - Arch & Arch Based Only)
+
+```bash
+yay -S plymouth-theme-monoarch-refined
+```
+or
+```bash
+paru -S plymouth-theme-monoarch-refined
+```
+
 ### Manual Installation
+
+If you do not use git. Download latest .tar.xz or .zip from [Releases](https://github.com/iam-vasanth/monoarch-refined/releases). If you do, Then skip the Step-1.
 
 1. Clone the repository:
 ```bash
