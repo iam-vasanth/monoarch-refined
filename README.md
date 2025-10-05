@@ -115,13 +115,6 @@ The proportional spacing ensures consistent appearance regardless of screen size
 - **Original Theme**: [Monoarch](https://github.com/farsil/monoarch) by Marco Buzzanca 
 - **Modified by**: [iam-vasanth](https://github.com/iam-vasanth) (2025)
 
-## License
-
-MIT License - See [LICENSE](LICENSE) file for details
-
-Copyright (c) 2016 Marco Buzzanca  
-Modifications Copyright (c) 2025 iam-vasanth
- 
 ## Contributing
 
 Contributions are welcome! Feel free to:
