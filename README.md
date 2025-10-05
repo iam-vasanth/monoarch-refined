@@ -8,7 +8,7 @@ A refined Plymouth boot theme based on [Monoarch](https://github.com/farsil/mono
 
 - **Centered Layout** - Logo and spinner perfectly centered with proportional spacing
 - **Universal Display Support** - Responsive design adapts to all screen resolutions and aspect ratios
-- **Clean Password Prompt** - Minimalist Connect-style bullet input
+- **Clean Password Prompt** - Minimalist bullet style password input
 - **Monochrome Design** - Clean black and white Arch Linux aesthetic
 - **Smooth Animations** - Elegant spinner animation and pulsating logo effects
 
@@ -26,6 +26,8 @@ This theme works on any Linux distribution that uses Plymouth, including:
 - Ubuntu/Debian-based distributions
 - Fedora/RHEL-based distributions
 - openSUSE
+
+⚠️ **Warning**: I have not tested it on distributions other than Arch.
 
 **Note**: Installation commands vary by distribution. See your distribution's documentation for the correct initramfs rebuild command.
 
