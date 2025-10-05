@@ -27,7 +27,7 @@ This theme should work on most Linux distribution that uses Plymouth, including:
 - Fedora/RHEL-based distributions
 - openSUSE
 
-⚠️ **Warning**: I have not tested it on any distributions other than Arch. Use at your own risk till i setup VM's for other distributions and test it myself. I would really appreciate if someone else someone could test and update me on it.
+⚠️ **Warning**: I have only tested this theme on Arch Linux. Use it at your own risk on other distributions until I can test it in virtual machines. If you try it elsewhere, I’d greatly appreciate any feedback or updates you can share.
 
 **Note**: Installation commands vary by distribution. See your distribution's documentation for the correct initramfs rebuild command.
 
