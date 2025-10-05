@@ -67,7 +67,7 @@ In the same `monoarch-refined` directory:
 ```bash
 chmod +x test-plymouth.sh
 ./test-plymouth.sh
-
+```
 If needed, you can edit the script file to test any Plymouth theme installed in `/usr/share/plymouth/themes/` and change the timer durations as well.
 
 **Tip**: Edit the script to customize:
