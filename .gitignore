@@ -26,3 +26,6 @@ desktop.ini
 
 # Test files
 test/
+
+# AUR files
+/AUR
