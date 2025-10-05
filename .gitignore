@@ -16,7 +16,7 @@ desktop.ini
 
 # Editor files
 .vscode/
-*.code-workspace
+monoarch-refined.code-workspace
 .idea/
 *.sublime-*
 
