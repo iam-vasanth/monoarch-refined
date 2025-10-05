@@ -4,14 +4,6 @@ A refined Plymouth boot theme based on [Monoarch](https://github.com/farsil/mono
 
 ![Monoarch Refined Preview](screenshot.png)
 
-## Screenshots
-
-### Boot Animation
-![Boot Animation](screenshots/boot.png)
-
-### Password Prompt
-![Password Prompt](screenshots/password.png)
-
 ## Features
 
 - **Centered Layout** - Logo and spinner perfectly centered with proportional spacing
@@ -109,6 +101,14 @@ This theme is designed to work seamlessly across:
 - Portrait/vertical displays
 
 The proportional spacing ensures consistent appearance regardless of screen size or aspect ratio.
+
+## Screenshots
+
+### Boot Animation
+![Boot Animation](screenshots/boot.png)
+
+### Password Prompt
+![Password Prompt](screenshots/password.png)
 
 ## Credits
 
