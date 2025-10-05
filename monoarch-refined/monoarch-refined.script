@@ -42,11 +42,12 @@ logo.x = Window.GetWidth() / 2 - logo.image.GetWidth() / 2;
 # Display spinner and logo if in boot mode
 if (Plymouth.GetMode() == "boot")
 {
-    logo.y = Window.GetHeight() * 0.375 - logo.image.GetHeight() / 2;
+    # Center logo vertically with proportional offset, spinner below
+    logo.y = Window.GetHeight() / 2 - logo.image.GetHeight() / 2 - Window.GetHeight() * 0.05;
 
     spinner.image = Image("spinner-0.png");
     spinner.x = Window.GetWidth() / 2 - spinner.image.GetWidth() / 2;
-    spinner.y = Window.GetHeight() * 0.625 - spinner.image.GetHeight() / 2;
+    spinner.y = logo.y + logo.image.GetHeight() + Window.GetHeight() * 0.03;
     spinner.tick = 0;
 
     spinner.sprite = Sprite(spinner.image);
@@ -101,7 +102,7 @@ Plymouth.SetRefreshFunction(refresh);
 
 status = "normal";
 
-#----------------------------------------- Password Prompt Dialogue --------------------------------
+#----------------------------------------- Dialogue (Connect-style) --------------------------------
 
 // Password prompt variables
 bullets = null;
