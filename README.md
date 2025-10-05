@@ -2,7 +2,7 @@
 
 A refined Plymouth boot theme based on [Monoarch](https://github.com/farsil/monoarch) - featuring centered layout, responsive design, and a clean password prompt that works across all display types.
 
-![Monoarch Refined Preview](screenshot.png)
+![Monoarch Refined Preview](screenshots/Monoarch-refined.gif)
 
 ## Features
 
@@ -30,7 +30,7 @@ Optional for best appearance:
 
 ## Installation
 
-⚠️ If you haven't installed and set up plymouth. Please [Click here](https://wiki.archlinux.org/title/Plymouth) and follow the arch wiki guide to setup before proceeding further.
+⚠️ **Warning**: If you haven't installed and set up plymouth. Please [Click here](https://wiki.archlinux.org/title/Plymouth) and follow the arch wiki guide to setup before proceeding further.
 
 ### Manual Installation
 
@@ -59,20 +59,20 @@ sudo mkinitcpio -P
 
 ### Testing Before Reboot (Optional)
 
-Test the theme without rebooting:
-```bash
-sudo plymouthd
-sudo plymouth --show-splash
-```
+For testing purposes, I have included a test script that shows the splash screen for 10 seconds, then the password prompt for 10 seconds, and automatically closes.
 
-Test password prompt:
+⚠️ **Warning**: Do not try to close the terminal or Plymouth window abruptly before the timer ends. If interrupted, the boot splash may get stuck and you will need to manually kill the process or reboot. Please wait for the script to complete by itself.
+
+In the same `monoarch-refined` directory:
 ```bash
-sudo plymouthd
-sudo plymouth --show-splash
-sudo plymouth ask-for-password --prompt="Enter Password"
-# Type to see bullets appear
-sudo plymouth --quit
-```
+chmod +x test-plymouth.sh
+./test-plymouth.sh
+
+If needed, you can edit the script file to test any Plymouth theme installed in `/usr/share/plymouth/themes/` and change the timer durations as well.
+
+**Tip**: Edit the script to customize:
+- `THEME_NAME` - Test any theme from `/usr/share/plymouth/themes/`
+- `SPLASH_DURATION` and `PASSWORD_DURATION` - Adjust timers as needed (Recommended in Seconds)
 
 ## Uninstallation
 
@@ -105,10 +105,10 @@ The proportional spacing ensures consistent appearance regardless of screen size
 ## Screenshots
 
 ### Boot Animation
-![Boot Animation](screenshots/boot.png)
+![Boot Animation](screenshots/Splash.png)
 
 ### Password Prompt
-![Password Prompt](screenshots/password.png)
+![Password Prompt](screenshots/Password-prompt.png)
 
 ## Credits
 
