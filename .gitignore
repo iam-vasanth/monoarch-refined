@@ -1,0 +1,28 @@
+# Plymouth debug logs
+*.log
+/tmp/plymouth-debug.log
+
+# Backup files
+*.bak
+*.backup
+*~
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# Compressed files (if you're creating releases)
+*.zip
+*.tar.gz
+*.tar.bz2
+
+# Test files
+test/

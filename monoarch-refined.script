@@ -1,0 +1,176 @@
+# Copyright (c) 2016 Marco Buzzanca 
+# Modified by [iam-vasanth] (2025)
+#
+# Modifications:
+# - Centered layout with proportional spacing for universal display compatibility
+# - Refined password prompt with Connect-style bullet input
+# - Responsive design that adapts to all screen resolutions and aspect ratios
+#
+# Permission is hereby granted, free of charge, to any person
+# obtaining a copy of this software and associated documentation
+# files (the "Software"), to deal in the Software without
+# restriction, including without limitation the rights to use,
+# copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following
+# conditions:
+#
+# The above copyright notice and this permission notice shall be
+# included in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+# EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+# OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+# NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+# WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+# FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+
+Window.SetBackgroundTopColor(0.0, 0.0, 0.0);
+Window.SetBackgroundBottomColor(0.0, 0.0, 0.0);
+
+// Screen size
+screen.w = Window.GetWidth();
+screen.h = Window.GetHeight();
+screen.half.w = Window.GetWidth() / 2;
+screen.half.h = Window.GetHeight() / 2;
+
+logo.image = Image("logo.png");
+logo.x = Window.GetWidth() / 2 - logo.image.GetWidth() / 2;
+
+# Display spinner and logo if in boot mode
+if (Plymouth.GetMode() == "boot")
+{
+    logo.y = Window.GetHeight() * 0.375 - logo.image.GetHeight() / 2;
+
+    spinner.image = Image("spinner-0.png");
+    spinner.x = Window.GetWidth() / 2 - spinner.image.GetWidth() / 2;
+    spinner.y = Window.GetHeight() * 0.625 - spinner.image.GetHeight() / 2;
+    spinner.tick = 0;
+
+    spinner.sprite = Sprite(spinner.image);
+    spinner.sprite.SetPosition(spinner.x, spinner.y, 0);
+}
+
+# Otherwise display a pulsating logo
+else
+{
+    logo.y = Window.GetHeight() / 2 - logo.image.GetHeight() / 2;
+    logo.minOpacity = 0.3;
+    logo.opacityAngle = 0.0;
+}
+
+logo.sprite = Sprite(logo.image);
+logo.sprite.SetPosition(logo.x, logo.y, 0);
+
+fun refresh()
+{
+    # Spinner animation
+    if (Plymouth.GetMode() == "boot")
+    {
+        if (status == "normal")
+        {
+            frameNo = (spinner.tick++ / 4) % 12;
+
+            spinner.sprite.SetImage(Image("spinner-" + frameNo + ".png"));
+            spinner.sprite.SetOpacity(1);
+        }
+
+        else
+        {
+            spinner.sprite.SetOpacity(0);
+        }
+    }
+
+    # Pulsating logo animation
+    else
+    {
+        # 0.5 Hz pulsating rate
+        logo.opacityAngle += ((2 * 3.14) / 50) * 0.5; 
+
+        opacity = (Math.Cos(logo.opacityAngle) + 1) / 2;
+        opacity *= 1 - logo.minOpacity;
+        opacity += logo.minOpacity;
+
+        logo.sprite.SetOpacity(opacity);
+    }
+}
+
+Plymouth.SetRefreshFunction(refresh);
+
+status = "normal";
+
+#----------------------------------------- Password Prompt Dialogue --------------------------------
+
+// Password prompt variables
+bullets = null;
+prompt = null;
+bullet.image = Image.Text("*", 1, 1, 1);
+
+fun DisplayPasswordCallback(nil, bulletCount) {
+    global.status = "password";
+    
+    totalWidth = bulletCount * bullet.image.GetWidth();
+    startPos = screen.half.w - totalWidth / 2;
+    
+    prompt.image = Image.Text("Enter Password", 1, 1, 1);
+    prompt.sprite = Sprite(prompt.image);
+    prompt.sprite.SetX(screen.half.w - prompt.image.GetWidth() / 2);
+    prompt.sprite.SetY(screen.h - 4 * prompt.image.GetHeight());
+    
+    // Clear all bullets (user might hit backspace)
+    bullets = null;
+    for (i = 0; i < bulletCount; i++) {
+        bullets[i].sprite = Sprite(bullet.image);
+        bullets[i].sprite.SetX(startPos + i * bullet.image.GetWidth());
+        bullets[i].sprite.SetY(screen.h - 2 * bullet.image.GetHeight());
+    }
+}
+
+fun display_normal_callback()
+{
+    global.status = "normal";
+    bullets = null;
+    prompt = null;
+}
+
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+Plymouth.SetDisplayPasswordFunction(DisplayPasswordCallback);
+
+#----------------------------------------- Quit --------------------------------
+
+fun quit_callback ()
+{
+  logo.sprite.SetOpacity (1);
+}
+
+Plymouth.SetQuitFunction(quit_callback);
+
+#----------------------------------------- Message --------------------------------
+
+message_sprites = [];
+message_sprite_count = 0;
+message_sprite_y = 10;
+
+fun display_message_callback (text)
+{
+  my_image = Image.Text(text, 1, 1, 1);
+  message_sprites[message_sprite_count] = Sprite(my_image);
+  message_sprites[message_sprite_count].SetPosition(10, message_sprite_y, 10000);
+  message_sprites[message_sprite_count].text = text;
+  message_sprite_count++;
+  message_sprite_y += my_image.GetHeight();
+}
+
+fun hide_message_callback (text)
+{
+  for (i = 0; i < message_sprite_count; i++)
+    {
+      if (message_sprites[i].text == text)
+        message_sprites[i] = NULL;
+    }
+}
+
+Plymouth.SetDisplayMessageFunction (display_message_callback);
+Plymouth.SetHideMessageFunction (hide_message_callback);
