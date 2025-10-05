@@ -17,7 +17,7 @@ A refined Plymouth boot theme based on [Monoarch](https://github.com/farsil/mono
 - Centered logo and spinner layout with proportional spacing (5% and 3% of screen height)
 - Replaced complex dialog box password prompt with simple bullet-style input
 - Added responsive design that scales across different display types
-- Optimized for modern displays (1080p, 1440p, 4K, ultrawide, etc.)
+- Optimized for modern displays (720p, 1080p, 1440p, 4K, ultrawide, etc.)
 
 ## Requirements
 
