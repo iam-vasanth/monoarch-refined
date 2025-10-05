@@ -1,8 +1,8 @@
 [Plymouth Theme]
-Name=Monoarch
+Name=Monoarch-refined
 Description=Refined monochrome Arch Linux theme with centered layout and responsive design
 ModuleName=script
 
 [script]
-ImageDir=/usr/share/plymouth/themes/monoarch-refind/images
-ScriptFile=/usr/share/plymouth/themes/monoarch-refind/monoarch-refind.script
+ImageDir=/usr/share/plymouth/themes/monoarch-refined/images
+ScriptFile=/usr/share/plymouth/themes/monoarch-refined/monoarch-refined.script
