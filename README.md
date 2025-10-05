@@ -19,21 +19,10 @@ A refined Plymouth boot theme based on [Monoarch](https://github.com/farsil/mono
 - Added responsive design that scales across different display types
 - Optimized for modern displays (720p, 1080p, 1440p, 4K, ultrawide, etc.)
 
-## Compatibility
-
-This theme should work on most Linux distribution that uses Plymouth, including:
-- Arch Linux and derivatives
-- Ubuntu/Debian-based distributions
-- Fedora/RHEL-based distributions
-- openSUSE
-
-⚠️ **Warning**: I have only tested this theme on Arch Linux. Use it at your own risk on other distributions until I can test it in virtual machines. If you try it elsewhere, I’d greatly appreciate any feedback or updates you can share.
-
-**Note**: Installation commands vary by distribution. See your distribution's documentation for the correct initramfs rebuild command.
-
 ## Requirements
 
 - Plymouth
+- Arch (or Arch based distributions)
 - No specific font dependencies (uses system default)
 
 Optional for best appearance:
@@ -55,7 +44,7 @@ paru -S plymouth-theme-monoarch-refined
 
 ### Manual Installation
 
-If you do not use git. Download latest .tar.xz or .zip from [Releases](https://github.com/iam-vasanth/monoarch-refined/releases). If you do, Then skip the Step-1.
+If you do not use git. Download latest `.tar.xz` or `.zip` from [Releases](https://github.com/iam-vasanth/monoarch-refined/releases). In that case, you can skip Step 1.
 
 1. Clone the repository:
 ```bash
