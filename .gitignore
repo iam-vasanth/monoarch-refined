@@ -16,6 +16,7 @@ desktop.ini
 
 # Editor files
 .vscode/
+.code-workspace
 .idea/
 *.sublime-*
 
