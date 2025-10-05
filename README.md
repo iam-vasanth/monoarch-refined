@@ -21,13 +21,13 @@ A refined Plymouth boot theme based on [Monoarch](https://github.com/farsil/mono
 
 ## Compatibility
 
-This theme works on any Linux distribution that uses Plymouth, including:
+This theme should work on most Linux distribution that uses Plymouth, including:
 - Arch Linux and derivatives
 - Ubuntu/Debian-based distributions
 - Fedora/RHEL-based distributions
 - openSUSE
 
-⚠️ **Warning**: I have not tested it on distributions other than Arch.
+⚠️ **Warning**: I have not tested it on any distributions other than Arch. Use at your own risk till i setup VM's for other distributions and test it myself. I would really appreciate if someone else someone could test and update me on it.
 
 **Note**: Installation commands vary by distribution. See your distribution's documentation for the correct initramfs rebuild command.
 
